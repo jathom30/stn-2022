@@ -13,7 +13,6 @@ function App() {
         footer={<Footer />}
       >
         <MainCTA />
-        <MainCTA />
       </MaxHeightContainer>
     </div>
   );

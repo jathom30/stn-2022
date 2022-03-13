@@ -14,7 +14,7 @@ export const MainCTA = () => {
   const randomIndex = randomIntFromInterval(images.length)
   return (
     <div className="MainCTA">
-      <img className='MainCTA__bg-image' src={images[randomIndex]} alt="the band" />
+      <img className='MainCTA__bg-image' src={images[randomIndex]} alt="the band" loading='lazy' />
       <div className="MainCTA__logo">
         <Logo />
       </div>
