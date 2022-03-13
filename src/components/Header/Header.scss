@@ -1,0 +1,36 @@
+.Header {
+  background: white;
+  box-shadow: var(--box-shadow-300-dark);
+  position: relative;
+  &__hamburger-btn {
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    transition: all .2s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.HeaderLink {
+  text-decoration: none;
+  color: grey;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  &--is-active {
+    color: black;
+  }
+  &:hover {
+    color: black;
+  }
+}
+
+.Blimp {
+  height: 25px;
+  width: auto;
+  * {
+    fill: black;
+  }
+}
