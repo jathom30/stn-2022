@@ -13,7 +13,7 @@ function randomIntFromInterval(max: number) {
 export const MainCTA = () => {
   const randomIndex = randomIntFromInterval(images.length)
   return (
-    <div className="MainCTA">
+    <div className="MainCTA" id="home">
       <img className='MainCTA__bg-image' src={images[randomIndex]} alt="the band" loading='lazy' />
       <div className="MainCTA__logo">
         <Logo />

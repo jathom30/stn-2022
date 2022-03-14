@@ -1,7 +1,6 @@
 import React from 'react';
 import { FlexBox } from 'component-library/Box';
 
-
 export const Footer = () => {
   return (
     <footer className="Footer">

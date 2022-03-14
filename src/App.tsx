@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.scss';
 import './theme.css'
-import { MaxHeightContainer } from './component-library';
-import { Footer, Header, MainCTA } from './components';
+import { FlexBox, MaxHeightContainer } from './component-library';
+import { About, Calendar, Footer, Header, MainCTA, Section } from './components';
+import { Hr } from 'component-library/Hr';
 
 function App() {
   return (
@@ -13,6 +14,27 @@ function App() {
         footer={<Footer />}
       >
         <MainCTA />
+        <FlexBox flexDirection='column' justifyContent="stretch" gap="1rem">
+          <Section location='music' label="Music">
+            music
+          </Section>
+          <Hr />
+          <Section location='videos' label='Videos'>
+            videos
+          </Section>
+          <Hr />
+          <Section location='pictures' label='Pictures'>
+            pictures
+          </Section>
+          <Hr />
+          <Section location='calendar' label="Calendar">
+            <Calendar />
+          </Section>
+          <Hr />
+          <Section location='about' label='About'>
+            <About />
+          </Section>
+        </FlexBox>
       </MaxHeightContainer>
     </div>
   );

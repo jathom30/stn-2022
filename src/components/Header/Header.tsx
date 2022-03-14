@@ -4,7 +4,7 @@ import { FlexBox } from 'component-library/Box';
 import './Header.scss'
 import { useOnClickOutside } from 'hooks';
 
-const links = ['music', 'videos', 'pictures', 'calendar', 'about', 'contact']
+const links = ['music', 'videos', 'pictures', 'calendar', 'about']
 
 export const Header = () => {
   const [width, setWidth] = useState(0)
@@ -33,7 +33,9 @@ export const Header = () => {
   return (
     <header className="Header" ref={headerRef}>
       <FlexBox padding='1rem' justifyContent="space-between">
-        <Blimp />
+        <a className='Header__home-link' href="#home" onClick={() => handleLinkClick('home')}>
+          <Blimp />
+        </a>
         {isMobile ? (
           <button className='Header__hamburger-btn' onClick={() => setIsOpen(!isOpen)}>
             <Hamburger isOpen={isOpen} />

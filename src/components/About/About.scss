@@ -1,0 +1,14 @@
+.About {
+  &__hr {
+    height: 2px;
+    background: lightgrey;
+    border-radius: .25rem;
+  }
+  &__member {
+    color: grey;
+    span {
+      font-weight: bold;
+      color: black;
+    }
+  }
+}
