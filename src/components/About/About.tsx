@@ -1,6 +1,33 @@
 import React from 'react';
 import { FlexBox, GridBox } from 'component-library';
+import Jeff from 'assets/jeff.jpg'
+import Dan from 'assets/dan.jpg'
+import Dave from 'assets/dave.jpg'
+import Zack from 'assets/zack.jpg'
 import './About.scss'
+
+const members = [
+  {
+    name: 'Dan Hardin',
+    instrument: 'Vocals, Guitar',
+    image: Dan,
+  },
+  {
+    name: 'Jeff Thomas',
+    instrument: 'Vocals, Guitar',
+    image: Jeff,
+  },
+  {
+    name: 'Dave Neill',
+    instrument: 'Bass, Vocals',
+    image: Dave,
+  },
+  {
+    name: 'Zack Kennedy',
+    instrument: 'Drums, Percussion',
+    image: Zack,
+  },
+]
 
 export const About = () => {
   return (
@@ -11,14 +38,21 @@ export const About = () => {
         <p>The band has been featured on The World Cafe as apart of David Dye’s “Sense of Place” series and was listed as one of Louisville’s 5 Best Local Acts, had the opportunity to play along side The Wood Brothers twice, played large festival style shows, including WFPK’s Waterfront Wednesday, and currently hold the record for most pre-sale tickets for a local show at The Clifton Center.</p>
         <div className='About__hr' />
         <h3>Members</h3>
-        <span>TODO: add headshots with names</span>
-        <GridBox gridTemplateColumns='repeat(auto-fit, minmax(200px, 1fr))' gap="1rem">
-          <p className='About__member'><span>Daniel Hardin</span>: Vocals, Guitar</p>
-          <p className='About__member'><span>Jeff Thomas</span>: Vocals, Guitar</p>
-          <p className='About__member'><span>Dave Neill</span>: Bass</p>
-          <p className='About__member'><span>Zack Kennedy</span>: Drums, Percussion</p>
+        <GridBox gridTemplateColumns='repeat(auto-fit, minmax(150px, 1fr))' gap="1rem">
+          {members.map(member => (
+            <Member key={member.name} image={member.image} name={member.name} instrument={member.instrument} />
+          ))}
         </GridBox>
       </FlexBox>
+    </div>
+  )
+}
+
+const Member = ({image, name, instrument}: {image: string; name: string; instrument: string}) => {
+  return (
+    <div className="Member">
+      <img src={image} alt={name} />
+      <p><span>{name}</span>: {instrument}</p>
     </div>
   )
 }

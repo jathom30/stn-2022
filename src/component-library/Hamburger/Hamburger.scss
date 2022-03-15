@@ -1,7 +1,7 @@
 .Hamburger {
   $barWidth: 4px;
-  width: 40px;
-  height: 25px;
+  width: 30px;
+  height: 20px;
   display: flex;
   align-items: center;
   position: relative;
@@ -9,31 +9,31 @@
     width: 100%;
     height: $barWidth;
     background: black;
-    border-radius: .25rem;
-    transition: all .2s ease;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
     &--is-open {
       background: transparent;
     }
   }
   &::before {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     position: absolute;
     width: 100%;
     height: $barWidth;
     background: black;
     top: 0;
-    content: '';
-    transition: all .2s ease;
+    content: "";
+    transition: all 0.2s ease;
   }
   &::after {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     position: absolute;
     width: 100%;
     height: $barWidth;
     background: black;
     bottom: 0;
-    content: '';
-    transition: all .2s ease;
+    content: "";
+    transition: all 0.2s ease;
   }
   &--is-open {
     &::before {

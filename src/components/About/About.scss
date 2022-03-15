@@ -2,13 +2,20 @@
   &__hr {
     height: 2px;
     background: lightgrey;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
-  &__member {
-    color: grey;
-    span {
-      font-weight: bold;
-      color: black;
-    }
+}
+
+.Member {
+  color: grey;
+  text-align: center;
+  img {
+    max-width: 150px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  span {
+    font-weight: bold;
+    color: black;
   }
 }

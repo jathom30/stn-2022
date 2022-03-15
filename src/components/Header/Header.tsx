@@ -4,7 +4,7 @@ import { FlexBox } from 'component-library/Box';
 import './Header.scss'
 import { useOnClickOutside } from 'hooks';
 
-const links = ['music', 'videos', 'pictures', 'calendar', 'about']
+const links = ['music', 'videos', 'pictures', 'calendar', 'about', 'contact']
 
 export const Header = () => {
   const [width, setWidth] = useState(0)
