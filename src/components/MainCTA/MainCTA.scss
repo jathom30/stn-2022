@@ -8,11 +8,12 @@
     object-fit: cover;
     grid-column: 1 / 1;
     grid-row: 1 / 1;
-    filter: brightness(.75);
+    filter: brightness(0.75);
   }
   &__logo {
     z-index: 1;
     width: 90vw;
+    max-width: 900px;
     padding: 1rem;
     height: auto;
     grid-column: 1 / 1;

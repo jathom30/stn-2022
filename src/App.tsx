@@ -24,30 +24,33 @@ function App() {
         footer={<Footer />}
       >
         <MainCTA />
-        <FlexBox flexDirection='column' justifyContent="stretch" gap="1rem">
-          <Section location='music' label="Music">
-            <Music />
-          </Section>
-          <Hr />
-          <Section location='videos' label='Videos'>
-            <Videos />
-          </Section>
-          <Hr />
-          <Section location='pictures' label='Pictures'>
-            pictures
-          </Section>
-          <Hr />
-          <Section location='calendar' label="Calendar">
-            <Calendar />
-          </Section>
-          <Hr />
-          <Section location='about' label='About'>
-            <About />
-          </Section>
-          <Section location='contact' label='Contact'>
-            <Contact />
-          </Section>
-        </FlexBox>
+        <div className="App__sections">
+          <FlexBox flexDirection='column' justifyContent="stretch" gap="1rem">
+            <Section location='music' label="Music">
+              <Music />
+            </Section>
+            <Hr />
+            <Section location='videos' label='Videos'>
+              <Videos />
+            </Section>
+            <Hr />
+            <Section location='pictures' label='Pictures'>
+              pictures
+            </Section>
+            <Hr />
+            <Section location='calendar' label="Calendar">
+              <Calendar />
+            </Section>
+            <Hr />
+            <Section location='about' label='About'>
+              <About />
+            </Section>
+            <Hr />
+            <Section location='contact' label='Contact'>
+              <Contact />
+            </Section>
+          </FlexBox>
+        </div>
       </MaxHeightContainer>
     </div>
   );

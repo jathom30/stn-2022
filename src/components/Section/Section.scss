@@ -1,8 +1,9 @@
 .Section {
-  // border-top: 1rem solid lightgrey;
-  max-width: 900px;
+  height: 100%;
   width: 100%;
   padding: 1rem;
   margin: 0 auto;
-  // box-shadow: var(--box-shadow-300);
+  background: white;
+  position: relative;
+  border-radius: 0.5rem;
 }
