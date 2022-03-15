@@ -58,6 +58,5 @@ function App() {
 
 export default App;
 
-// TODO music
-// TODO videos
-// TODO pictures
+// TODO s3 thumbnails
+// TODO header active tracking
