@@ -1,0 +1,34 @@
+.Music {
+  &__iframe {
+    overflow: hidden;
+    padding-bottom: 80%;
+    position: relative;
+    height: 0;
+    iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  }
+  &__link {
+    color: grey;
+    text-decoration: none;
+    svg {
+      border-radius: 0.25rem;
+      height: 1.5rem;
+      width: auto;
+    }
+    svg * {
+      fill: lightgrey;
+    }
+    &:hover {
+      color: black;
+      text-decoration: underline;
+      svg * {
+        fill: black;
+      }
+    }
+  }
+}

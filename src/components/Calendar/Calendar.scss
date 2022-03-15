@@ -3,6 +3,14 @@
     padding: 0 1rem;
     p {
       text-align: center;
+      a {
+        text-decoration: none;
+        color: lightgrey;
+        &:hover {
+          text-decoration: underline;
+          color: black;
+        }
+      }
     }
   }
 }

@@ -1,10 +1,12 @@
 .Contact {
   text-align: center;
+  padding-bottom: 2rem;
   a {
     text-decoration: none;
     color: grey;
     &:hover {
       color: black;
+      text-decoration: underline;
     }
   }
 }

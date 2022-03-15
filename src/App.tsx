@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import './App.scss';
 import './theme.css'
 import { FlexBox, MaxHeightContainer, Hr } from './component-library';
-import { About, Calendar, Contact, Footer, Header, MainCTA, Section } from './components';
-import { Videos } from 'components/Videos';
+import { About, Calendar, Contact, Footer, Header, MainCTA, Music, Section, Videos } from './components';
 
 function App() {
 
@@ -27,7 +26,7 @@ function App() {
         <MainCTA />
         <FlexBox flexDirection='column' justifyContent="stretch" gap="1rem">
           <Section location='music' label="Music">
-            music
+            <Music />
           </Section>
           <Hr />
           <Section location='videos' label='Videos'>

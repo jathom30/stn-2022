@@ -4,9 +4,10 @@
   }
   a {
     text-decoration: none;
-    color: grey;
+    color: lightgrey;
     &:hover {
       color: black;
+      text-decoration: underline;
     }
   }
 }
