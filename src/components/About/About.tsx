@@ -46,7 +46,7 @@ export const About = () => {
 const Member = ({image, name, instrument}: {image: string; name: string; instrument: string}) => {
   return (
     <div className="Member">
-      <img src={image} alt={name} />
+      <img src={image} alt={name} loading="lazy" />
       <p><span>{name}</span>: {instrument}</p>
     </div>
   )
