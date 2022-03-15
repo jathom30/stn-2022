@@ -1,4 +1,4 @@
-import { FlexBox } from 'component-library';
+import { FlexBox, GridBox } from 'component-library';
 import React from 'react';
 import './Videos.scss'
 
@@ -7,8 +7,11 @@ export const Videos = () => {
     <div className="Videos">
       <FlexBox flexDirection='column' gap="1rem">
         <YoutubeEmbed embedId='VOorvFGkFmU' />
-        <YoutubeEmbed embedId='UpIqZn-E9Ys' />
-        <YoutubeEmbed embedId='A-UyZxr2qhQ' />
+        <GridBox gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap="1rem">
+          <YoutubeEmbed embedId='UpIqZn-E9Ys' />
+          <YoutubeEmbed embedId='A-UyZxr2qhQ' />
+        </GridBox>
+        <span>Visit our <a target="_blank" rel="noreferrer" href="https://www.youtube.com/user/stnapoleonband">youtube channel</a> for more.</span>
       </FlexBox>
     </div>
   )
