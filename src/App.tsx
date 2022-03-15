@@ -3,6 +3,7 @@ import './App.scss';
 import './theme.css'
 import { FlexBox, MaxHeightContainer, Hr } from './component-library';
 import { About, Calendar, Contact, Footer, Header, MainCTA, Section } from './components';
+import { Videos } from 'components/Videos';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
           </Section>
           <Hr />
           <Section location='videos' label='Videos'>
-            videos
+            <Videos />
           </Section>
           <Hr />
           <Section location='pictures' label='Pictures'>
