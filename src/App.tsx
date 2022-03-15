@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './App.scss';
 import './theme.css'
 import { FlexBox, MaxHeightContainer, Hr } from './component-library';
-import { About, Calendar, Contact, Footer, Header, MainCTA, Music, Section, Videos } from './components';
+import { About, Calendar, Contact, Footer, Header, Images, MainCTA, Music, Section, Videos } from './components';
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
             </Section>
             <Hr />
             <Section location='pictures' label='Pictures'>
-              pictures
+              <Images />
             </Section>
             <Hr />
             <Section location='calendar' label="Calendar">
