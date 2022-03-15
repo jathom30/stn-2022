@@ -1,31 +1,27 @@
 import React from 'react';
 import { FlexBox, GridBox } from 'component-library';
-import Jeff from 'assets/jeff.jpg'
-import Dan from 'assets/dan.jpg'
-import Dave from 'assets/dave.jpg'
-import Zack from 'assets/zack.jpg'
 import './About.scss'
 
 const members = [
   {
     name: 'Dan Hardin',
     instrument: 'Vocals, Guitar',
-    image: Dan,
+    image: `https://stn-pics.s3.us-east-2.amazonaws.com/dan.jpg`,
   },
   {
     name: 'Jeff Thomas',
     instrument: 'Vocals, Guitar',
-    image: Jeff,
+    image: `https://stn-pics.s3.us-east-2.amazonaws.com/jeff.jpg`,
   },
   {
     name: 'Dave Neill',
     instrument: 'Bass, Vocals',
-    image: Dave,
+    image: `https://stn-pics.s3.us-east-2.amazonaws.com/dave.jpg`,
   },
   {
     name: 'Zack Kennedy',
     instrument: 'Drums, Percussion',
-    image: Zack,
+    image: `https://stn-pics.s3.us-east-2.amazonaws.com/zack.jpg`,
   },
 ]
 

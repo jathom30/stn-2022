@@ -1,20 +1,18 @@
 import React from 'react';
-import bigHands from 'assets/bigHandsV2.jpg'
-import danHead from 'assets/danHead.jpg'
-import sizing from 'assets/smallestToLargest.jpg'
 import './MainCTA.scss'
 
-const images = [bigHands, danHead, sizing]
+const images = ['bigHandsV2', 'danHead', 'smallestToLargest']
+const mappedImages = images.map(image => `https://stn-pics.s3.us-east-2.amazonaws.com/${image}.jpg`)
 
 function randomIntFromInterval(max: number) {
   return Math.floor(Math.random() * max)
 }
 
 export const MainCTA = () => {
-  const randomIndex = randomIntFromInterval(images.length)
+  const randomIndex = randomIntFromInterval(mappedImages.length)
   return (
     <div className="MainCTA" id="home">
-      <img className='MainCTA__bg-image' src={images[randomIndex]} alt="the band" loading='lazy' />
+      <img className='MainCTA__bg-image' src={mappedImages[randomIndex]} alt="the band" loading='lazy' />
       <div className="MainCTA__logo">
         <Logo />
       </div>
