@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import './theme.css'
 import { FlexBox, MaxHeightContainer, Hr } from './component-library';
 import { About, Calendar, Contact, Footer, Header, Images, MainCTA, Music, Section, Videos } from './components';
 
 function App() {
+  const [width, setWidth] = useState(0)
 
   useEffect(() => {
     const handleResize = () => {
+      setWidth(window.innerWidth)
       const doc = document.documentElement
       doc.style.setProperty('--app-height', `${window.innerHeight}px`)
     }
@@ -16,14 +18,16 @@ function App() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const isMobile = width < 600
+
   return (
     <div className="App">
       <MaxHeightContainer
         fullHeight
-        header={<Header />}
+        header={<Header isMobile={isMobile} />}
         footer={<Footer />}
       >
-        <MainCTA />
+        <MainCTA isMobile={isMobile} />
         <div className="App__sections">
           <FlexBox flexDirection='column' justifyContent="stretch" gap="1rem">
             <Section location='music' label="Music">
@@ -58,5 +62,4 @@ function App() {
 
 export default App;
 
-// TODO s3 thumbnails
 // TODO header active tracking

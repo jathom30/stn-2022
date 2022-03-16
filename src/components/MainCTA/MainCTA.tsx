@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './MainCTA.scss'
 
-const images = ['bigHandsV2', 'danHead', 'smallestToLargest']
-const mappedImages = images.map(image => `https://stn-pics.s3.us-east-2.amazonaws.com/${image}.jpg`)
+const mobileImages = ['daveHead', 'zachHead', 'bigHead', 'stand']
+const desktopImages = ['jeffHead', 'bigHandsV2', 'danHead', 'smallestToLargest']
+const mappedImages = (images: string[]) => images.map(image => `https://stn-pics.s3.us-east-2.amazonaws.com/${image}.jpg`)
 
 function randomIntFromInterval(max: number) {
   return Math.floor(Math.random() * max)
 }
 
-export const MainCTA = () => {
-  const randomIndex = randomIntFromInterval(mappedImages.length)
+export const MainCTA = ({isMobile}: {isMobile: boolean}) => {
+  const [index, setIndex] = useState(0)
+
+  const imagesAtWidth = isMobile ? mobileImages : desktopImages
+  useEffect(() => {
+    setIndex(randomIntFromInterval(imagesAtWidth.length))
+  }, [imagesAtWidth.length])
+
+  const images = mappedImages(imagesAtWidth)
   return (
     <div className="MainCTA" id="home">
-      <img className='MainCTA__bg-image' src={mappedImages[randomIndex]} alt="the band" loading='lazy' />
+      <img className='MainCTA__bg-image' src={images[index]} alt="the band" loading='lazy' />
       <div className="MainCTA__logo">
         <Logo />
       </div>
