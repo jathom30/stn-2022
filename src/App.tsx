@@ -32,8 +32,7 @@ function App() {
 
   const isMobile = width < 600
 
-  const handleScroll = (top: number) => {
-    // TODO make this not static
+  const handleScroll = () => {
     const headerHeight = headerRef.current?.getBoundingClientRect().height || 0
     const refTops = [
       {
@@ -110,5 +109,3 @@ function App() {
 }
 
 export default App;
-
-// TODO header active tracking
