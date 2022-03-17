@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { RefObject, useEffect, useState } from 'react';
 import { Hamburger } from 'component-library';
 import { FlexBox } from 'component-library/Box';
 import './Header.scss'
@@ -6,10 +6,9 @@ import { useOnClickOutside } from 'hooks';
 
 const links = ['music', 'videos', 'pictures', 'calendar', 'about', 'contact']
 
-export const Header = ({isMobile}: {isMobile: boolean}) => {
+export const Header = ({isMobile, defaultActive, headerRef}: {isMobile: boolean; defaultActive: string; headerRef: RefObject<HTMLDivElement>}) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState('home')
-  const headerRef = useRef<HTMLDivElement>(null)
+  const [activeLink, setActiveLink] = useState(defaultActive)
 
   useOnClickOutside(headerRef, () => setIsOpen(false))
 
@@ -17,6 +16,11 @@ export const Header = ({isMobile}: {isMobile: boolean}) => {
     setIsOpen(false)
     setActiveLink(link)
   }
+
+  useEffect(() => {
+    // updates active onScroll from App.tsx
+    setActiveLink(defaultActive)
+  }, [defaultActive])
 
   return (
     <header className="Header" ref={headerRef}>

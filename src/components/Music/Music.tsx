@@ -1,11 +1,22 @@
 import { AmazonIcon, AppleIcon, BandcampIcon, SpotifyIcon } from 'assets/icons';
 import { FlexBox, GridBox } from 'component-library';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Music.scss'
 
 export const Music = () => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(ref.current?.getBoundingClientRect().top, window.scrollY)
+      console.log('here')
+    }
+    window.addEventListener('scroll', () => handleScroll())
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <div className="Music">
+    <div ref={ref} className="Music">
       <GridBox gap="1rem" gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))">
         <div className="Music__iframe">
         <iframe
