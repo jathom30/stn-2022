@@ -1,21 +1,34 @@
-import { FlexBox, GridBox } from 'component-library';
-import React from 'react';
-import './Videos.scss'
+import { FlexBox, GridBox } from "component-library";
+import React from "react";
+import "./Videos.scss";
 
 export const Videos = () => {
   return (
     <div className="Videos">
-      <FlexBox flexDirection='column' gap="1rem">
-        <YoutubeEmbed embedId='JPb-I9_j6cc' />
-        <GridBox gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap="1rem">
-          <YoutubeEmbed embedId='VOorvFGkFmU' />
-          <YoutubeEmbed embedId='UpIqZn-E9Ys' />
+      <FlexBox flexDirection="column" gap="1rem">
+        <YoutubeEmbed embedId="KYPUa2LZNAk" />
+        <GridBox
+          gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))"
+          gap="1rem"
+        >
+          <YoutubeEmbed embedId="s8EQVnbvQDY" />
+          <YoutubeEmbed embedId="n0D2xUkKFQ8" />
         </GridBox>
-        <span>Visit our <a target="_blank" rel="noreferrer" href="https://www.youtube.com/user/stnapoleonband">youtube channel</a> for more.</span>
+        <span>
+          Visit our{" "}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.youtube.com/user/stnapoleonband"
+          >
+            youtube channel
+          </a>{" "}
+          for more.
+        </span>
       </FlexBox>
     </div>
-  )
-}
+  );
+};
 
 const YoutubeEmbed = ({ embedId }: { embedId: string }) => (
   <div className="YoutubeEmbed">
