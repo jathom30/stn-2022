@@ -1,109 +1,155 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './App.scss';
-import './theme.css'
-import { FlexBox, MaxHeightContainer, Hr } from './component-library';
-import { About, Calendar, Contact, Footer, Header, Images, MainCTA, Music, Section, Videos } from './components';
+import React, { useEffect, useRef, useState } from "react";
+import "./App.scss";
+import "./theme.css";
+import { FlexBox, MaxHeightContainer, Hr } from "./component-library";
+import {
+  About,
+  Calendar,
+  Contact,
+  Footer,
+  Header,
+  Images,
+  MainCTA,
+  Music,
+  Section,
+  Videos,
+  Socials,
+} from "./components";
 
-const closestToZero = (tops: {name: string; top: number}[]) =>
-  tops.sort((a, b) => Math.abs(0 - a.top) - Math.abs(0 - b.top))[0]
+const closestToZero = (tops: { name: string; top: number }[]) =>
+  tops.sort((a, b) => Math.abs(0 - a.top) - Math.abs(0 - b.top))[0];
 
 function App() {
-  const [width, setWidth] = useState(0)
-  const [scrolledSection, setScrolledSection] = useState('cta')
-  const ctaRef = useRef<HTMLDivElement>(null)
-  const musicRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLDivElement>(null)
-  const picturesRef = useRef<HTMLDivElement>(null)
-  const calendarRef = useRef<HTMLDivElement>(null)
-  const aboutRef = useRef<HTMLDivElement>(null)
-  const contactRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
+  const [path, setPath] = useState(window.location.pathname);
+  const [width, setWidth] = useState(0);
+  const [scrolledSection, setScrolledSection] = useState("cta");
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const musicRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
+  const picturesRef = useRef<HTMLDivElement>(null);
+  const calendarRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setPath(window.location.pathname);
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      setWidth(window.innerWidth)
-      const doc = document.documentElement
-      doc.style.setProperty('--app-height', `${window.innerHeight}px`)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+      setWidth(window.innerWidth);
+      const doc = document.documentElement;
+      doc.style.setProperty("--app-height", `${window.innerHeight}px`);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const isMobile = width < 600
+  const isMobile = width < 600;
 
   const handleScroll = () => {
-    const headerHeight = headerRef.current?.getBoundingClientRect().height || 0
+    const headerHeight = headerRef.current?.getBoundingClientRect().height || 0;
     const refTops = [
       {
-        name: 'cta',
-        top:ctaRef.current?.getBoundingClientRect().top || 0 - headerHeight
+        name: "cta",
+        top: ctaRef.current?.getBoundingClientRect().top || 0 - headerHeight,
       },
       {
-        name: 'music',
-        top:musicRef.current?.getBoundingClientRect().top || 0 - headerHeight
+        name: "music",
+        top: musicRef.current?.getBoundingClientRect().top || 0 - headerHeight,
       },
       {
-        name: 'videos',
-        top:videoRef.current?.getBoundingClientRect().top || 0 - headerHeight
+        name: "videos",
+        top: videoRef.current?.getBoundingClientRect().top || 0 - headerHeight,
       },
       {
-        name: 'pictures',
-        top:picturesRef.current?.getBoundingClientRect().top || 0 - headerHeight
+        name: "pictures",
+        top:
+          picturesRef.current?.getBoundingClientRect().top || 0 - headerHeight,
       },
       {
-        name: 'calendar',
-        top:calendarRef.current?.getBoundingClientRect().top || 0 - headerHeight
+        name: "calendar",
+        top:
+          calendarRef.current?.getBoundingClientRect().top || 0 - headerHeight,
       },
       {
-        name: 'about',
-        top:aboutRef.current?.getBoundingClientRect().top || 0 - headerHeight
+        name: "about",
+        top: aboutRef.current?.getBoundingClientRect().top || 0 - headerHeight,
       },
       {
-        name: 'contact',
-        top:contactRef.current?.getBoundingClientRect().top || 0 - headerHeight
+        name: "contact",
+        top:
+          contactRef.current?.getBoundingClientRect().top || 0 - headerHeight,
       },
-    ]
-    setScrolledSection(closestToZero(refTops).name)
-  }
+    ];
+    setScrolledSection(closestToZero(refTops).name);
+  };
 
   return (
     <div className="App">
-      <MaxHeightContainer
-        fullHeight
-        onScroll={handleScroll}
-        header={<Header headerRef={headerRef} isMobile={isMobile} defaultActive={scrolledSection} />}
-        footer={<Footer />}
-      >
-        <MainCTA isMobile={isMobile} ctaRef={ctaRef} />
-        <div className="App__sections">
-          <FlexBox flexDirection='column' justifyContent="stretch" gap="1rem">
-            <Section location='music' label="Music" sectionRef={musicRef}>
-              <Music />
-            </Section>
-            <Hr />
-            <Section location='videos' label='Videos' sectionRef={videoRef}>
-              <Videos />
-            </Section>
-            <Hr />
-            <Section location='pictures' label='Pictures' sectionRef={picturesRef}>
-              <Images />
-            </Section>
-            <Hr />
-            <Section location='calendar' label="Calendar" sectionRef={calendarRef}>
-              <Calendar />
-            </Section>
-            <Hr />
-            <Section location='about' label='About' sectionRef={aboutRef}>
-              <About />
-            </Section>
-            <Hr />
-            <Section location='contact' label='Contact' sectionRef={contactRef}>
-              <Contact />
-            </Section>
-          </FlexBox>
-        </div>
-      </MaxHeightContainer>
+      {path.includes("/socials") ? (
+        <Socials isMobile={isMobile} ctaRef={ctaRef} />
+      ) : (
+        <MaxHeightContainer
+          fullHeight
+          onScroll={handleScroll}
+          header={
+            <Header
+              headerRef={headerRef}
+              isMobile={isMobile}
+              defaultActive={scrolledSection}
+            />
+          }
+          footer={<Footer />}
+        >
+          <MainCTA isMobile={isMobile} ctaRef={ctaRef} />
+          <div className="App__sections">
+            <FlexBox flexDirection="column" justifyContent="stretch" gap="1rem">
+              <Section location="music" label="Music" sectionRef={musicRef}>
+                <Music />
+              </Section>
+              <Hr />
+              <Section location="videos" label="Videos" sectionRef={videoRef}>
+                <Videos />
+              </Section>
+              <Hr />
+              <Section
+                location="pictures"
+                label="Pictures"
+                sectionRef={picturesRef}
+              >
+                <Images />
+              </Section>
+              <Hr />
+              <Section
+                location="calendar"
+                label="Calendar"
+                sectionRef={calendarRef}
+              >
+                <Calendar />
+              </Section>
+              <Hr />
+              <Section location="about" label="About" sectionRef={aboutRef}>
+                <About />
+              </Section>
+              <Hr />
+              <Section
+                location="contact"
+                label="Contact"
+                sectionRef={contactRef}
+              >
+                <Contact />
+              </Section>
+            </FlexBox>
+          </div>
+        </MaxHeightContainer>
+      )}
     </div>
   );
 }
