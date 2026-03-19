@@ -94,19 +94,19 @@ export const Socials = ({
               </a>
             ))}
           </div>
-        </div>
-        <div className="Socials__social-links">
-          {socialLinks.map((link) => (
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={link.url}
-              className="Socials__social-link"
-              title={link.name}
-            >
-              {link.icon}
-            </a>
-          ))}
+          <div className="Socials__social-links">
+            {socialLinks.map((link) => (
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={link.url}
+                className="Socials__social-link"
+                title={link.name}
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
